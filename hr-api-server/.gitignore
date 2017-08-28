@@ -1,0 +1,7 @@
+*.project
+/.gradle/
+/bin/
+/conf/
+/logs/
+/target/
+/build/
