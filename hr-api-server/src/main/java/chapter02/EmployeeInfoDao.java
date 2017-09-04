@@ -38,24 +38,6 @@ public class EmployeeInfoDao {
     return connect;
   }
 
-//  private StringBuffer buildResponse(ResultSet resultSet) throws SQLException {
-//    StringBuffer builder = new StringBuffer();
-//
-//    if (resultSet != null) {
-//      while (resultSet.next()) {
-//        for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
-//          if (i != 1) {
-//            builder.append("|");
-//          }
-//          builder.append(resultSet.getString(i));
-//        }
-//        builder.append("\r\n");
-//      }
-//    }
-//
-//    return builder;
-//  }
-  
   private StringBuffer buildEmployeeInfoByNo(ResultSet resultSet) throws SQLException {
     StringBuffer builder = new StringBuffer();
 
