@@ -1,22 +1,22 @@
 
 package chapter03;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import java.sql.SQLException;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class EmployeeInfoDaoTestV2 {
+public class EmployeeInfoDaoTestV3 {
   static EmployeeInfoDao employeeInfoDao;
 
   @BeforeClass
   public static void setUpBeforeClass() {
     employeeInfoDao = new EmployeeInfoDao();
-    assertNotNull(employeeInfoDao);
+    assertThat(employeeInfoDao).isNotNull();
   }
 
   @Test
@@ -24,8 +24,11 @@ public class EmployeeInfoDaoTestV2 {
     try {
       StringBuffer result = employeeInfoDao.getEmployeeInfoByNo("403144");
 
-      assertEquals("403144|Kristin Serra|Staff|Sales|1993-02-27|57459\r\n",
-          result.toString());
+      assertThat(result.toString())
+          .isEqualTo("403144|Kristin Ser ra|Staff|Sales|1993-02-27|57459\r\n");
+
+      assertEquals(result.toString(),
+          "403144|Kristin Serra|Staff|Sales|1993-02-27|57459\r\n");
     }
     catch (SQLException e) {
       fail("SQL 실행 오류");
@@ -38,7 +41,7 @@ public class EmployeeInfoDaoTestV2 {
       String empNo = null;
       StringBuffer result = employeeInfoDao.getEmployeeInfoByNo(empNo);
 
-      assertEquals("", result.toString());
+      assertThat(result.toString()).isEqualTo("");
     }
     catch (SQLException e) {
       fail("SQL 실행 오류");
@@ -50,7 +53,7 @@ public class EmployeeInfoDaoTestV2 {
     try {
       StringBuffer result = employeeInfoDao.getEmployeeInfoByNo("16");
 
-      assertEquals("", result.toString());
+      assertThat(result.toString()).isEqualTo("");
     }
     catch (SQLException e) {
       fail("SQL 실행 오류");
