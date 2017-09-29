@@ -57,17 +57,6 @@ public class EmployeeInfoDaoTestV2 {
     }
   }
 
-  @Test
-  public void SQL예외_테스트1() {
-    try {
-      employeeInfoDao.getEmployeeInfoByNo("");
-      fail("SQL 실행 오류");
-    }
-    catch (SQLException e) {
-      // 성공
-    }
-  }
-
   @Test(expected = SQLException.class)
   public void SQL예외_테스트2() throws SQLException {
     employeeInfoDao.getEmployeeInfoByNo("");
