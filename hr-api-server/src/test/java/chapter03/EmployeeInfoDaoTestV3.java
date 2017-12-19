@@ -25,7 +25,7 @@ public class EmployeeInfoDaoTestV3 {
       StringBuffer result = employeeInfoDao.getEmployeeInfoByNo("403144");
 
       assertThat(result.toString())
-          .isEqualTo("403144|Kristin Ser ra|Staff|Sales|1993-02-27|57459\r\n");
+          .isEqualTo("403144|Kristin Serra|Staff|Sales|1993-02-27|57459\r\n");
 
       assertEquals(result.toString(),
           "403144|Kristin Serra|Staff|Sales|1993-02-27|57459\r\n");

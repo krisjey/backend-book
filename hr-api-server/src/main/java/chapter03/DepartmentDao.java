@@ -14,7 +14,7 @@ public class DepartmentDao {
   private Logger logger = Logger.getLogger(EmployeeInfoDao.class);
 
   private Connection getConnection() {
-    String url = "jdbc:mysql://172.28.128.5:3306/employees";
+    String url = "jdbc:mysql://172.28.128.3:3306/employees";
     String username = "backend";
     String password = "kris34#$";
 
