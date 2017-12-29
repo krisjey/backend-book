@@ -8,8 +8,6 @@ import java.sql.SQLException;
 
 import org.junit.Test;
 
-import chapter03.DepartmentDao;
-
 public class DepartmentDaoTestV2 {
   @Test
   public void 부서정보_조회_테스트() {

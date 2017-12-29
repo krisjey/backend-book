@@ -14,7 +14,7 @@ public class DepartmentDao {
   private Logger logger = Logger.getLogger(EmployeeInfoDao.class);
 
   private Connection getConnection() {
-    String url = "jdbc:mysql://172.28.128.3:3306/employees";
+    String url = "jdbc:mysql://172.28.128.3:3306/employees?serverTimezone=UTC";
     String username = "backend";
     String password = "kris34#$";
 
@@ -37,26 +37,6 @@ public class DepartmentDao {
 
     return connect;
   }
-
-//  // FIXME 리팩토링에서 이코드를 사용하고 V1에서는 개별 필드를 사용하자.  
-//  private StringBuffer buildResponse(ResultSet resultSet) throws SQLException {
-//    StringBuffer builder = new StringBuffer();
-//
-//    if (resultSet != null) {
-//      while (resultSet.next()) {
-//        for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
-//          if (i != 1) {
-//            builder.append("|");
-//          }
-//          builder.append(resultSet.getString(i));
-//
-//        }
-//        builder.append("\r\n");
-//      }
-//    }
-//
-//    return builder;
-//  }
 
   public StringBuffer getDepartmentInfo() throws SQLException {
     Connection connection = null;

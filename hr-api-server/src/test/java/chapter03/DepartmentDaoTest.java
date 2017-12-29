@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.fail;
 
 import java.sql.SQLException;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import chapter02.DepartmentDao;
@@ -64,6 +65,7 @@ public class DepartmentDaoTest {
     }
   }
 
+  @Ignore
   @Test
   public void 고객서비스부서_최근입사자_조회_테스트() {
     String expect = "60134|Seshu Rathonyi|2000-01-02|Customer Service\r\n" +

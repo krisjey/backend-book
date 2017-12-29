@@ -14,7 +14,7 @@ public class DepartmentDao {
   private Logger logger = Logger.getLogger(EmployeeInfoDao.class);
 
   private Connection getConnection() {
-    String url = "jdbc:mysql://172.28.128.3:3306/employees";
+    String url = "jdbc:mysql://172.28.128.3:3306/employees?serverTimezone=UTC";
     String username = "backend";
     String password = "kris34#$";
 
@@ -38,7 +38,7 @@ public class DepartmentDao {
     return connect;
   }
 
-  private StringBuffer buildResponse(ResultSet resultSet) throws SQLException {
+  private StringBuffer toApiResult(ResultSet resultSet) throws SQLException {
     StringBuffer builder = new StringBuffer();
 
     if (resultSet != null) {
@@ -72,7 +72,7 @@ public class DepartmentDao {
       builder.append(" select dept_no, dept_name from departments ");
 
       resultSet = statement.executeQuery(builder.toString());
-      result = buildResponse(resultSet);
+      result = toApiResult(resultSet);
     }
     finally {
       if (resultSet != null) {
@@ -124,7 +124,7 @@ public class DepartmentDao {
       builder.append(" limit " + size + " ");
 
       resultSet = statement.executeQuery(builder.toString());
-      result = buildResponse(resultSet);
+      result = toApiResult(resultSet);
     }
     finally {
       if (resultSet != null) {
