@@ -9,13 +9,12 @@ import java.sql.SQLException;
 import org.apache.log4j.Logger;
 
 public class HrApiServerV1 {
-  private static final int SERVICE_PORT = 8088;
   private static Logger logger = Logger.getLogger(HrApiServerV1.class);
 
   public static void main(String[] args) throws IOException, SQLException {
-    ServerSocket listenSocket = new ServerSocket(SERVICE_PORT);
+    ServerSocket listenSocket = new ServerSocket(8088);
     try {
-      logger.info("API 서버가 " + SERVICE_PORT + "포트로 시작되었습니다.");
+      logger.info("API 서버가 8088포트로 시작되었습니다.");
 
       // 클라이언트가 연결될때까지 대기한다.
       Socket connection = null;

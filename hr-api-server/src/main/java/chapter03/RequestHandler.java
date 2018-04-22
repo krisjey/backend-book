@@ -17,9 +17,7 @@ import org.apache.log4j.Logger;
 
 public class RequestHandler {
   private static final Logger logger = Logger.getLogger(RequestHandler.class);
-
   private Map<String, String> parameters = new HashMap<String, String>();
-
   private Socket connection;
 
   public RequestHandler(Socket connection) {
@@ -69,7 +67,7 @@ public class RequestHandler {
 
       StringBuffer buffer = null;
 
-      // API 분기처리
+      // API 요청 URL 분기
       if (requestPath.equals("/get_employee_info")) {
         EmployeeInfoDao employeeInfoDao = new EmployeeInfoDao();
         buffer = employeeInfoDao.getEmployeeInfoByNo(parameters.get("emp_no"));
@@ -95,7 +93,7 @@ public class RequestHandler {
         buffer.append("\r\n");
       }
 
-      // 데이터 응답 로그작성
+      // 데이터 응답 로그 작성
       logger.info("응답 : " + buffer.toString());
 
       response200(connection.getOutputStream(), buffer.toString());
@@ -139,7 +137,7 @@ public class RequestHandler {
       DataOutputStream dos = new DataOutputStream(outputStream);
       dos.writeBytes("HTTP/1.1 200 OK \r\n");
       dos.writeBytes("Content-Type: text/html;charset=utf-8\r\n");
-//      dos.writeBytes("Content-Length: " + data.length + "\r\n");
+      dos.writeBytes("Content-Length: " + data.length + "\r\n");
       dos.writeBytes("\r\n");
 
       dos.write(data);

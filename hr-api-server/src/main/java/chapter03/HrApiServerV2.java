@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
+import chapter03.RequestHandler;
+
 public class HrApiServerV2 {
   private static final int SERVICE_PORT = 8088;
   private static Logger logger = Logger.getLogger(HrApiServerV2.class);
