@@ -1,17 +1,11 @@
 
 package chapter04;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-import chapter03.BasicDao;
-
-public class DepartmentManagerDao extends BasicDao {
+public class DepartmentManagerDao extends BasicDaoV2 {
 
   public StringBuffer getDepartmentManagerByNo(String deptNo) throws SQLException {
-    StringBuffer result = null;
     StringBuffer builder = new StringBuffer();
     builder.append(" SELECT ");
     builder.append("     dept.dept_no,");
@@ -30,14 +24,6 @@ public class DepartmentManagerDao extends BasicDao {
     builder.append("     dept.dept_no = '" + deptNo + "'");
     builder.append("         AND mgr.to_date > NOW()");
 
-    try (Connection connection = getConnection();
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(builder.toString());) {
-
-      result = toApiResult(resultSet);
-    }
-
-    return result;
+    return executeQuery(builder);
   }
-
 }

@@ -12,7 +12,7 @@ public class DepartmentManagerDaoTest {
   public void 존재하지_않는_부서_관리자_조회() throws SQLException {
     DepartmentManagerDao departmentManagerDao = new DepartmentManagerDao();
     StringBuffer result = departmentManagerDao.getDepartmentManagerByNo("");
-    assertThat(result).isNull();
+    assertThat(result.toString()).isEqualTo("");
   }
 
   @Test
