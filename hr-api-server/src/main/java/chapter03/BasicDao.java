@@ -12,7 +12,6 @@ public class BasicDao {
   private Logger logger = Logger.getLogger(BasicDao.class);
   
   protected Connection getConnection() {
-    // FIXME 원고에 serverTimezone=UTC 적용
     String url = "jdbc:mysql://172.28.128.3:3306/employees?serverTimezone=UTC";
     String username = "backend";
     String password = "kris34#$";
