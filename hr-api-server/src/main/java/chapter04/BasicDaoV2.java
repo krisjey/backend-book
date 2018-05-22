@@ -1,3 +1,4 @@
+
 package chapter04;
 
 import java.sql.Connection;
@@ -5,15 +6,21 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
 public class BasicDaoV2 {
   private Logger logger = Logger.getLogger(BasicDaoV2.class);
-  
+
   protected Connection getConnection() {
-    String url = "jdbc:mysql://172.28.128.3:3306/employees?serverTimezone=UTC";
+    String url = "jdbc:mysql://172.28.128.4:3306/employees?serverTimezone=UTC";
     String username = "backend";
     String password = "kris34#$";
 
@@ -36,17 +43,19 @@ public class BasicDaoV2 {
 
     return connect;
   }
-  
-  protected StringBuffer toApiResult(ResultSet resultSet) throws SQLException {
+
+  protected StringBuffer toApiResult(List<Map<String, Object>> result) throws SQLException {
     StringBuffer builder = new StringBuffer();
 
-    if (resultSet != null) {
-      while (resultSet.next()) {
-        for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
+    if (result != null) {
+      for (Map<String, Object> record : result) {
+        int i = 0;
+        for (Entry<String, Object> field : record.entrySet()) {
+          i++;
           if (i != 1) {
             builder.append("|");
           }
-          builder.append(resultSet.getString(i));
+          builder.append(field.getValue());
         }
         builder.append("\r\n");
       }
@@ -54,16 +63,22 @@ public class BasicDaoV2 {
 
     return builder;
   }
-  
-  protected StringBuffer executeQuery(StringBuffer query) throws SQLException  {
-    StringBuffer result = null;
+
+  protected List<Map<String, Object>> executeQuery(StringBuffer query) throws SQLException {
+    List<Map<String, Object>> records = new ArrayList<>();
     try (Connection connection = getConnection();
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(query.toString());) {
+        ResultSet resultSet = statement.executeQuery(query.toString())) {
 
-      result = toApiResult(resultSet);
+      while (resultSet.next()) {
+        Map<String, Object> record = new LinkedHashMap<>();
+        for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
+          record.put(resultSet.getMetaData().getColumnName(i), resultSet.getString(i));
+        }
+        records.add(record);
+      }
     }
-    
-    return result;
+
+    return records;
   }
 }

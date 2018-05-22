@@ -2,6 +2,8 @@
 package chapter04;
 
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 public class DepartmentManagerDao extends BasicDaoV2 {
 
@@ -24,6 +26,8 @@ public class DepartmentManagerDao extends BasicDaoV2 {
     builder.append("     dept.dept_no = '" + deptNo + "'");
     builder.append("         AND mgr.to_date > NOW()");
 
-    return executeQuery(builder);
+    List<Map<String, Object>> queryResult = executeQuery(builder);
+
+    return toApiResult(queryResult);
   }
 }
