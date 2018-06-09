@@ -16,8 +16,8 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-public class BasicDaoV2 {
-  private Logger logger = Logger.getLogger(BasicDaoV2.class);
+public class BasicDaoV3 {
+  private Logger logger = Logger.getLogger(BasicDaoV3.class);
 
   private Connection getConnection() {
     String url = "jdbc:mysql://172.28.128.4:3306/employees?serverTimezone=UTC";

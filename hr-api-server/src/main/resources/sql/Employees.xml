@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Employees">
+	<select id="getDepartmentManagerByNo" resultType="map">
+		SELECT   
+		    dept.dept_no,  
+		    dept.dept_name,  
+		    emp.emp_no,  
+		    concat(emp.first_name, ' ', emp.last_name) name,  
+		    emp.hire_date join_date,  
+		    mgr.from_date appointment_date  
+		FROM  
+		    departments dept  
+		        INNER JOIN  
+		    dept_manager mgr ON dept.dept_no = mgr.dept_no  
+		        INNER JOIN  
+		    employees emp ON mgr.emp_no = emp.emp_no  
+		WHERE  
+		    dept.dept_no = #{deptNo}
+		    AND mgr.to_date > NOW()  
+	</select>
+</mapper>
