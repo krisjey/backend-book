@@ -30,18 +30,18 @@ public class JunitAnnotationTest {
   }
 
   @Test
-  public void Ã¹_¹øÂ°_Å×½ºÆ®() {
-    System.out.println("Ã¹ Å×½ºÆ®");
+  public void ì²«_ë²ˆì§¸_í…ŒìŠ¤íŠ¸() {
+    System.out.println("ì²« í…ŒìŠ¤íŠ¸");
   }
 
   @Test
   @Ignore
-  public void µÎ_¹øÂ°_Å×½ºÆ®() {
-    System.out.println("µÎ ¹øÂ° Å×½ºÆ®");
+  public void ë‘_ë²ˆì§¸_í…ŒìŠ¤íŠ¸() {
+    System.out.println("ë‘ ë²ˆì§¸ í…ŒìŠ¤íŠ¸");
   }
   
   @Test
-  public void ¼¼_¹øÂ°_Å×½ºÆ®() {
-    System.out.println("¼¼ ¹øÂ° Å×½ºÆ®");
+  public void ì„¸_ë²ˆì§¸_í…ŒìŠ¤íŠ¸() {
+    System.out.println("ì„¸ ë²ˆì§¸ í…ŒìŠ¤íŠ¸");
   }
 }

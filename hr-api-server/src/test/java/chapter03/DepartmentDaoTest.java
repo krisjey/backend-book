@@ -13,7 +13,7 @@ import chapter02.DepartmentDao;
 
 public class DepartmentDaoTest {
   @Test
-  public void ºÎ¼­Á¤º¸_Á¶È¸_Å×½ºÆ®() {
+  public void ë¶€ì„œì •ë³´_ì¡°íšŒ_í…ŒìŠ¤íŠ¸() {
     String expect = "d009|Customer Service\r\n" +
         "d005|Development\r\n" +
         "d002|Finance\r\n" +
@@ -38,7 +38,7 @@ public class DepartmentDaoTest {
   }
 
   @Test
-  public void ºÎ¼­º°_ÃÖ±ÙÀÔ»çÀÚ_Á¶È¸_Å×½ºÆ®() {
+  public void ë¶€ì„œë³„_ìµœê·¼ì…ì‚¬ì_ì¡°íšŒ_í…ŒìŠ¤íŠ¸() {
     String expect = "226633|Xuejun Benzmuller|2000-01-04|Marketing\r\n" +
         "270991|Rosita Fujisawa|1999-12-20|Marketing\r\n" +
         "277558|Herbert Luit|1999-11-17|Marketing\r\n" +
@@ -67,7 +67,7 @@ public class DepartmentDaoTest {
 
   @Ignore
   @Test
-  public void °í°´¼­ºñ½ººÎ¼­_ÃÖ±ÙÀÔ»çÀÚ_Á¶È¸_Å×½ºÆ®() {
+  public void ê³ ê°ì„œë¹„ìŠ¤ë¶€ì„œ_ìµœê·¼ì…ì‚¬ì_ì¡°íšŒ_í…ŒìŠ¤íŠ¸() {
     String expect = "60134|Seshu Rathonyi|2000-01-02|Customer Service\r\n" +
         "73925|Vasilii Stavenow|1999-12-30|Customer Service\r\n" +
         "13919|Brewster Sinicrope|1999-12-04|Customer Service\r\n" +

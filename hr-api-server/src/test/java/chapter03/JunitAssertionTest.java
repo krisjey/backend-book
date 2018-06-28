@@ -9,7 +9,7 @@ import org.junit.Test;
 public class JunitAssertionTest {
   @Ignore
   @Test
-  public void equals¸Þ¼­µå_Å×½ºÆ®() {
+  public void equalsë©”ì„œë“œ_í…ŒìŠ¤íŠ¸() {
     assertEquals("1", "2");
   }
 }

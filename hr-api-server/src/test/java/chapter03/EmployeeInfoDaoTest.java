@@ -11,7 +11,7 @@ import org.junit.Test;
 
 public class EmployeeInfoDaoTest {
   @Test
-  public void Á¤»ó_»ç¹øÁ¶È¸_Å×½ºÆ®() {
+  public void ì •ìƒ_ì‚¬ë²ˆì¡°íšŒ_í…ŒìŠ¤íŠ¸() {
     EmployeeInfoDao employeeInfoDao = new EmployeeInfoDao();
     assertNotNull(employeeInfoDao);
     try {
@@ -21,12 +21,12 @@ public class EmployeeInfoDaoTest {
           result.toString());
     }
     catch (SQLException e) {
-      fail("SQL ½ÇÇà ¿À·ù");
+      fail("SQL ì‹¤í–‰ ì˜¤ë¥˜");
     }
   }
 
   @Test
-  public void null_»ç¹øÁ¶È¸_Å×½ºÆ®() {
+  public void null_ì‚¬ë²ˆì¡°íšŒ_í…ŒìŠ¤íŠ¸() {
     EmployeeInfoDao employeeInfoDao = new EmployeeInfoDao();
     assertNotNull(employeeInfoDao);
     try {
@@ -36,12 +36,12 @@ public class EmployeeInfoDaoTest {
       assertEquals("", result.toString());
     }
     catch (SQLException e) {
-      fail("SQL ½ÇÇà ¿À·ù");
+      fail("SQL ì‹¤í–‰ ì˜¤ë¥˜");
     }
   }
 
   @Test
-  public void Á¸ÀçÇÏÁö_¾Ê´Â_»ç¹øÁ¶È¸_Å×½ºÆ®() {
+  public void ì¡´ì¬í•˜ì§€_ì•ŠëŠ”_ì‚¬ë²ˆì¡°íšŒ_í…ŒìŠ¤íŠ¸() {
     EmployeeInfoDao employeeInfoDao = new EmployeeInfoDao();
     assertNotNull(employeeInfoDao);
     try {
@@ -50,25 +50,25 @@ public class EmployeeInfoDaoTest {
       assertEquals("", result.toString());
     }
     catch (SQLException e) {
-      fail("SQL ½ÇÇà ¿À·ù");
+      fail("SQL ì‹¤í–‰ ì˜¤ë¥˜");
     }
   }
 
   @Test
-  public void SQL¿¹¿Ü_Å×½ºÆ®1() {
+  public void SQLì˜ˆì™¸_í…ŒìŠ¤íŠ¸1() {
     EmployeeInfoDao employeeInfoDao = new EmployeeInfoDao();
     assertNotNull(employeeInfoDao);
     try {
       employeeInfoDao.getEmployeeInfoByNo("");
-      fail("SQL ½ÇÇà ¿À·ù");
+      fail("SQL ì‹¤í–‰ ì˜¤ë¥˜");
     }
     catch (SQLException e) {
-      // ¼º°ø
+      // ì„±ê³µ
     }
   }
   
   @Test(expected = SQLException.class)
-  public void SQL¿¹¿Ü_Å×½ºÆ®2() throws SQLException {
+  public void SQLì˜ˆì™¸_í…ŒìŠ¤íŠ¸2() throws SQLException {
     EmployeeInfoDao employeeInfoDao = new EmployeeInfoDao();
     assertNotNull(employeeInfoDao);
     employeeInfoDao.getEmployeeInfoByNo("");

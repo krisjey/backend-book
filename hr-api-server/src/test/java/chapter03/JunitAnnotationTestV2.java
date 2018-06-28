@@ -32,17 +32,17 @@ public class JunitAnnotationTestV2 {
   }
 
   @Test
-  public void _1Ã¹_¹øÂ°_Å×½ºÆ®() {
-    System.out.println("Ã¹ Å×½ºÆ®");
+  public void _1ì²«_ë²ˆì§¸_í…ŒìŠ¤íŠ¸() {
+    System.out.println("ì²« í…ŒìŠ¤íŠ¸");
   }
 
   @Test
-  public void _2µÎ_¹øÂ°_Å×½ºÆ®() {
-    System.out.println("µÎ ¹øÂ° Å×½ºÆ®");
+  public void _2ë‘_ë²ˆì§¸_í…ŒìŠ¤íŠ¸() {
+    System.out.println("ë‘ ë²ˆì§¸ í…ŒìŠ¤íŠ¸");
   }
   
   @Test
-  public void _3¼¼_¹øÂ°_Å×½ºÆ®() {
-    System.out.println("¼¼ ¹øÂ° Å×½ºÆ®");
+  public void _3ì„¸_ë²ˆì§¸_í…ŒìŠ¤íŠ¸() {
+    System.out.println("ì„¸ ë²ˆì§¸ í…ŒìŠ¤íŠ¸");
   }
 }

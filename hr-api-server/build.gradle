@@ -15,13 +15,18 @@ repositories {
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
-
+/**
+ * 1st approach: Setting encoding during compilation in Java and Test classes
+ */
+compileJava.options.encoding = 'UTF-8'
 dependencies {
     // The production code uses Guava
     compile 'com.google.guava:guava:20.0'
 
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+    
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
     
     // add from chap03
     testCompile 'junit:junit:4.12'

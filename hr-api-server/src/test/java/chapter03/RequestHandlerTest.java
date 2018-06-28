@@ -24,7 +24,7 @@ public class RequestHandlerTest {
     try {
       Socket socket = mock(Socket.class);
 
-      // Å×½ºÆ® ±×¸®°í ¸ñ¾÷.
+      // í…ŒìŠ¤íŠ¸ ê·¸ë¦¬ê³  ëª©ì—….
       when(socket.getRemoteSocketAddress()).thenReturn(new SocketAddress() {
       });
       when(socket.getInputStream()).thenReturn(new ByteArrayInputStream(

@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class BasicDaoV2Test {
   @Test
-  public void toApiResult¼ø¼­Å×½ºÆ®() throws SQLException {
+  public void toApiResultìˆœì„œí…ŒìŠ¤íŠ¸() throws SQLException {
     List<Map<String, Object>> result = new ArrayList<>();
     for (int rowNum = 0; rowNum < 2; rowNum++) {
       Map<String, Object> record = new LinkedHashMap<>();
