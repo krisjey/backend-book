@@ -12,7 +12,7 @@ public class BasicDao {
   private Logger logger = Logger.getLogger(BasicDao.class);
   
   protected Connection getConnection() {
-    String url = "jdbc:mysql://172.28.128.3:3306/employees?serverTimezone=UTC";
+    String url = "jdbc:mysql://172.28.128.4:3306/employees?serverTimezone=UTC";
     String username = "backend";
     String password = "kris34#$";
 

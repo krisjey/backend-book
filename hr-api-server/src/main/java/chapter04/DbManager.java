@@ -22,7 +22,7 @@ public class DbManager {
   }
 
   /**
-   * properties∑Œ XML ∑ŒµÂ
+   * propertiesÎ°ú XML Î°úÎìú
    */
   private DbManager() {
     try {
@@ -36,11 +36,10 @@ public class DbManager {
   }
 
   /**
-   * mybatis SqlSession
-   * FIXME ¿Œ≈Õ∆‰¿ÃΩ∫∑Œ ∫–∏Æ? æ∆¥‘ Factory∑Œ ∫–∏Æ? Object Pool
+   * get mybatis SqlSession
    * @return
    */
-  public SqlSession getSession(boolean autoCommit) {
-    return sqlSessionFactory.openSession(autoCommit);
+  public SqlSession getSession() {
+    return sqlSessionFactory.openSession(true);
   }
 }
