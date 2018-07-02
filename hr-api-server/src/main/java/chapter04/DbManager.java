@@ -8,21 +8,21 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class DbManager {
-  private static final DbManager dbHandler = new DbManager();
+  private static final DbManager dbManager = new DbManager();
 
   private SqlSessionFactory sqlSessionFactory;
 
   /**
-   * get instance for singleton
+   * 싱글톤 객체를 가져온다
    * 
-   * @return
+   * @return DbManager의 싱글톤 객체
    */
   public static DbManager getInstance() {
-    return dbHandler;
+    return dbManager;
   }
 
   /**
-   * properties로 XML 로드
+   * XML로부터 SqlSessionFactory 객체를 생성한다
    */
   private DbManager() {
     try {
@@ -31,13 +31,14 @@ public class DbManager {
       sqlSessionFactory = new SqlSessionFactoryBuilder().build(mybatisFile, "backend");
     }
     catch (Exception e) {
-      throw new RuntimeException("Can not build mybatis connection from zookeeper!", e);
+      throw new RuntimeException("Can not build mybatis connection!", e);
     }
   }
 
   /**
-   * get mybatis SqlSession
-   * @return
+   * SqlSessionFactory 객체로부터 SqlSession 객체를 생성한다.
+   * SqlSession의 autoCommit 값은 true다.
+   * @return SqlSession
    */
   public SqlSession getSession() {
     return sqlSessionFactory.openSession(true);

@@ -11,20 +11,22 @@ import org.junit.Test;
 
 public class DbManagerTest {
   @Test
-  public void test() {
+  public void 마이바티스_SQL테스트() {
     SqlSession session = DbManager.getInstance().getSession();
     List<Map<String, Object>> result = session.selectList("Employees.getDepartmentManagerByNo", "d009");
 
     assertThat(result).isNotNull();
 
     assertThat(result.size()).isEqualTo(1);
-    assertThat(result.get(0)).isNotEmpty();
+    
+    Map<String, Object> record = result.get(0);
+    assertThat(record).isNotEmpty();
 
-    assertThat(result.get(0).get("dept_no")).isEqualTo("d009");
-    assertThat(result.get(0).get("emp_no")).isEqualTo("111939");
-    assertThat(result.get(0).get("join_date")).isEqualTo("1989-07-10");
-    assertThat(result.get(0).get("name")).isEqualTo("Yuchang Weedman");
-    assertThat(result.get(0).get("dept_name")).isEqualTo("Customer Service");
-    assertThat(result.get(0).get("appointment_date")).isEqualTo("1996-01-03");
+    assertThat(record.get("dept_no")).isEqualTo("d009");
+    assertThat(record.get("emp_no")).isEqualTo(111939);
+    assertThat(record.get("join_date")).isEqualTo("1989-07-10");
+    assertThat(record.get("name")).isEqualTo("Yuchang Weedman");
+    assertThat(record.get("dept_name")).isEqualTo("Customer Service");
+    assertThat(record.get("appointment_date")).isEqualTo("1996-01-03");
   }
 }
