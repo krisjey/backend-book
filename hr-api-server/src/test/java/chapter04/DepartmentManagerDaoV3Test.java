@@ -10,15 +10,15 @@ import org.junit.Test;
 public class DepartmentManagerDaoV3Test {
   @Test
   public void 존재하지_않는_부서_관리자_조회() throws SQLException {
-    DepartmentManagerDaoV3 departmentManagerDaoV3 = new DepartmentManagerDaoV3();
-    StringBuffer result = departmentManagerDaoV3.getDepartmentManagerByNo("");
+    DepartmentManagerDaoV3 departmentManagerDao = new DepartmentManagerDaoV3();
+    StringBuffer result = departmentManagerDao.getDepartmentManagerByNo("");
     assertThat(result.toString()).isEqualTo("");
   }
 
   @Test
   public void 고객센터_관리자_조회() throws SQLException {
-    DepartmentManagerDaoV3 departmentManagerDaoV3 = new DepartmentManagerDaoV3();
-    StringBuffer result = departmentManagerDaoV3.getDepartmentManagerByNo("d009");
+    DepartmentManagerDaoV3 departmentManagerDao = new DepartmentManagerDaoV3();
+    StringBuffer result = departmentManagerDao.getDepartmentManagerByNo("d009");
     assertThat(result).isNotNull();
 
     assertThat(result.toString())
