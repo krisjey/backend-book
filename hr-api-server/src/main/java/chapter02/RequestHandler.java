@@ -25,15 +25,15 @@ public class RequestHandler {
   }
 
   public void execute() throws IOException, SQLException {
-    logger.debug("Å¬¶óÀÌ¾ğÆ® Á¢¼ÓµÊ.");
+    logger.debug("í´ë¼ì´ì–¸íŠ¸ ì ‘ì†ë¨.");
     SocketAddress remoteAddress = this.connection.getRemoteSocketAddress();
-    logger.debug("Å¬¶óÀÌ¾ğÆ® Á¢¼ÓÁ¤º¸ : " + remoteAddress.toString());
+    logger.debug("í´ë¼ì´ì–¸íŠ¸ ì ‘ì†ì •ë³´ : " + remoteAddress.toString());
 
     InputStream inputStream = null;
     InputStreamReader streamReader = null;
     BufferedReader bufferedReader = null;
 
-    // ¿äÃ» µ¥ÀÌÅÍ ÆÄ½Ì Ã³¸®
+    // ìš”ì²­ ë°ì´í„° íŒŒì‹± ì²˜ë¦¬
     try {
       inputStream = connection.getInputStream();
       streamReader = new InputStreamReader(inputStream);
@@ -53,7 +53,7 @@ public class RequestHandler {
         requestPath = httpRequest[1];
       }
 
-      logger.info("HTTP ¿äÃ» : " + requestLine);
+      logger.info("HTTP ìš”ì²­ : " + requestLine);
 
       while (true) {
         String httpHeader = bufferedReader.readLine();
@@ -67,7 +67,7 @@ public class RequestHandler {
 
       StringBuffer buffer = null;
 
-      // API ¿äÃ» URL ºĞ±â
+      // API ìš”ì²­ URL ë¶„ê¸°
       if (requestPath.equals("/get_employee_info")) {
         EmployeeInfoDao employeeInfoDao = new EmployeeInfoDao();
         buffer = employeeInfoDao.getEmployeeInfoByNo(parameters.get("emp_no"));
@@ -85,7 +85,7 @@ public class RequestHandler {
         buffer = new StringBuffer(1024);
         buffer.append("404");
         buffer.append("|");
-        buffer.append("Á¸ÀçÇÏÁö ¾Ê´Â API");
+        buffer.append("ì¡´ì¬í•˜ì§€ ì•ŠëŠ” API");
         buffer.append("|");
         buffer.append(requestMethod);
         buffer.append("|");
@@ -93,8 +93,8 @@ public class RequestHandler {
         buffer.append("\r\n");
       }
 
-      // µ¥ÀÌÅÍ ÀÀ´ä ·Î±× ÀÛ¼º
-      logger.info("ÀÀ´ä : " + buffer.toString());
+      // ë°ì´í„° ì‘ë‹µ ë¡œê·¸ ì‘ì„±
+      logger.info("ì‘ë‹µ : " + buffer.toString());
 
       response200(connection.getOutputStream(), buffer.toString());
     }

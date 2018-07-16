@@ -14,9 +14,8 @@ public class HrApiServerV1 {
   public static void main(String[] args) throws IOException, SQLException {
     ServerSocket listenSocket = new ServerSocket(8088);
     try {
-      logger.info("API ¼­¹ö°¡ 8088Æ÷Æ®·Î ½ÃÀÛµÇ¾ú½À´Ï´Ù.");
+      logger.info("API ì„œë²„ê°€ 8088í¬íŠ¸ë¡œ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.");
 
-      // Å¬¶óÀÌ¾ğÆ®°¡ ¿¬°áµÉ¶§±îÁö ´ë±âÇÑ´Ù.
       Socket connection = null;
       while (true) {
         connection = listenSocket.accept();

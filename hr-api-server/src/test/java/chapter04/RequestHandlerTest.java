@@ -1,5 +1,5 @@
 
-package chapter03;
+package chapter04;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
@@ -16,6 +16,8 @@ import java.net.SocketAddress;
 import java.sql.SQLException;
 
 import org.junit.Test;
+
+import chapter02.RequestHandler;
 
 public class RequestHandlerTest {
 

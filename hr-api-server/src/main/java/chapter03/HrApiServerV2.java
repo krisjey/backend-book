@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
-import chapter03.RequestHandler;
+import chapter02.RequestHandler;
 
 public class HrApiServerV2 {
   private static final int SERVICE_PORT = 8088;
@@ -17,9 +17,7 @@ public class HrApiServerV2 {
   public static void main(String[] args) throws IOException, SQLException {
     ServerSocket listenSocket = new ServerSocket(SERVICE_PORT);
     try {
-      logger.info("API ¼­¹ö°¡ " + SERVICE_PORT + "Æ÷Æ®·Î ½ÃÀÛµÇ¾ú½À´Ï´Ù.");
-
-      // Å¬¶óÀÌ¾ğÆ®°¡ ¿¬°áµÉ¶§±îÁö ´ë±âÇÑ´Ù.
+      logger.info("API ì„œë²„ê°€ " + SERVICE_PORT + "í¬íŠ¸ë¡œ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤.");
       Socket connection = null;
       while (true) {
         connection = listenSocket.accept();
