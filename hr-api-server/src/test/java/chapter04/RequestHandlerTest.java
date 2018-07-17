@@ -40,6 +40,7 @@ public class RequestHandlerTest {
           .getOutputStream();
 
       assertThat(outputStream).isNotNull();
+      assertThat(outputStream.size()).isGreaterThan(0);
 
       ByteArrayInputStream inputStream = new ByteArrayInputStream(
           outputStream.toString().getBytes());
