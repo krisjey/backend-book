@@ -15,6 +15,8 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import chapter04.DepartmentManagerDaoV3;
+
 public class RequestHandler {
   private static final Logger logger = Logger.getLogger(RequestHandler.class);
   private Map<String, String> parameters = new HashMap<String, String>();
@@ -80,6 +82,12 @@ public class RequestHandler {
         DepartmentDao departmentDao = new DepartmentDao();
         buffer = departmentDao
             .getDepartmentEmployeeInfo(parameters.get("dept_name"), 10);
+      }
+      else if (requestPath.equals("/get_department_manager")) {
+        DepartmentManagerDaoV3 departmentManagerDaoV3 
+                             = new DepartmentManagerDaoV3();
+        buffer = departmentManagerDaoV3
+            .getDepartmentManagerByNo(parameters.get("dept_no"));
       }
       else {
         buffer = new StringBuffer(1024);
