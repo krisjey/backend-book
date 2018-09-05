@@ -17,6 +17,7 @@ repositories {
 }
 /**
  * 1st approach: Setting encoding during compilation in Java and Test classes
+ gradlew wrapper --gradle-version=4.9
  */
 compileJava.options.encoding = 'UTF-8'
 dependencies {
